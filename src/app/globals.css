@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --deep-dark: #050505;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-purple: var(--neon-purple);
+  --color-deep-dark: var(--deep-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hide default cursor on desktop to prevent double cursor issue */
+@media (min-width: 768px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+/* Premium Liquid Neon Effect */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  background-size: 200% auto;
+  animation: gradient-flow 3s linear infinite;
+}
+
+/* Professional Glitch Effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #00f3ff;
+  animation: glitch-anim-1 3s infinite linear alternate-reverse;
+  background: transparent;
+  clip-path: inset(0 0 0 0);
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #bc13fe;
+  animation: glitch-anim-2 2s infinite linear alternate-reverse;
+  background: transparent;
+  clip-path: inset(0 0 0 0);
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(40% 0 50% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(10% 0 60% 0); }
+  100% { clip-path: inset(30% 0 30% 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); }
+  20% { clip-path: inset(30% 0 20% 0); }
+  40% { clip-path: inset(70% 0 10% 0); }
+  60% { clip-path: inset(20% 0 50% 0); }
+  80% { clip-path: inset(60% 0 20% 0); }
+  100% { clip-path: inset(5% 0 80% 0); }
+}
+
+/* Cleaner, intermittent glitch */
+.glitch-clean {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-clean::before,
+.glitch-clean::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-clean::before {
+  color: #00f3ff;
+  z-index: -1;
+  animation: glitch-effect 3s infinite;
+}
+
+.glitch-clean::after {
+  color: #bc13fe;
+  z-index: -2;
+  animation: glitch-effect 2s infinite reverse;
+}
+
+@keyframes glitch-effect {
+  0% { transform: translate(0); opacity: 0; }
+  2% { transform: translate(-2px, 2px); opacity: 1; }
+  4% { transform: translate(-2px, -2px); opacity: 1; }
+  6% { transform: translate(0); opacity: 0; }
+  100% { transform: translate(0); opacity: 0; }
+}
+
+/* Print Styles for Resume */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  #resume-content, #resume-content * {
+    visibility: visible;
+  }
+  
+  #resume-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a2e !important; /* Keep dark theme or change to white if preferred */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Hide elements marked with no-print */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Ensure scrollable content is fully expanded */
+  #resume-content > div {
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
