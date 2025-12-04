@@ -182,6 +182,31 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   )}
                 </div>
               </div>
+
+              {/* Gallery Section */}
+              {project.gallery && project.gallery.length > 0 && (
+                <div className="p-6 md:p-8 border-t border-white/10">
+                  <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                    <Layers className="text-neon-blue" size={20} />
+                    Project Gallery
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {project.gallery.map((img, idx) => (
+                      <div 
+                        key={idx} 
+                        className="relative h-48 rounded-lg overflow-hidden border border-white/5 hover:border-neon-blue/50 transition-all duration-300 group/image"
+                      >
+                        <Image
+                          src={img}
+                          alt={`${project.title} gallery image ${idx + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover/image:scale-110"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         </>

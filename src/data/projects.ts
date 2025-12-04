@@ -2,6 +2,33 @@ import webDevImg from "@/assets/web_dev.png";
 import digitalMarketingImg from "@/assets/digital_marketing.png";
 import { StaticImageData } from "next/image";
 
+// Social Media Growth Images
+import smg1 from "@/assets/social-media-growth/Social Media Growth (1).jpg";
+import smg2 from "@/assets/social-media-growth/Social Media Growth (2).jpg";
+import smg3 from "@/assets/social-media-growth/Social Media Growth (3).jpg";
+import smg4 from "@/assets/social-media-growth/Social Media Growth (4).jpg";
+import smg5 from "@/assets/social-media-growth/Social Media Growth (5).jpg";
+import smg6 from "@/assets/social-media-growth/Social Media Growth (6).jpg";
+import smg7 from "@/assets/social-media-growth/Social Media Growth (7).jpg";
+import smg8 from "@/assets/social-media-growth/Social Media Growth (8).jpg";
+import smg9 from "@/assets/social-media-growth/Social Media Growth (9).jpg";
+import smg10 from "@/assets/social-media-growth/Social Media Growth (10).jpg";
+import smg11 from "@/assets/social-media-growth/Social Media Growth (11).jpg";
+import smg12 from "@/assets/social-media-growth/Social Media Growth (12).jpg";
+import smg13 from "@/assets/social-media-growth/Social Media Growth (13).jpg";
+import smg14 from "@/assets/social-media-growth/Social Media Growth (14).jpg";
+import smg15 from "@/assets/social-media-growth/Social Media Growth (15).jpg";
+import smg16 from "@/assets/social-media-growth/Social Media Growth (16).jpg";
+import smg17 from "@/assets/social-media-growth/Social Media Growth (17).jpg";
+import smg18 from "@/assets/social-media-growth/Social Media Growth (18).jpg";
+import smg19 from "@/assets/social-media-growth/Social Media Growth (19).jpg";
+import smg20 from "@/assets/social-media-growth/Social Media Growth (20).jpg";
+import smg21 from "@/assets/social-media-growth/Social Media Growth (21).jpg";
+import smg22 from "@/assets/social-media-growth/Social Media Growth (22).jpg";
+import smg23 from "@/assets/social-media-growth/Social Media Growth (23).jpg";
+import smg24 from "@/assets/social-media-growth/Social Media Growth (24).jpg";
+import smg25 from "@/assets/social-media-growth/Social Media Growth (25).jpg";
+
 export interface Project {
   id: number;
   title: string;
@@ -73,6 +100,13 @@ export const projectData: Record<string, CategoryProjects> = {
         image: digitalMarketingImg,
         link: "#",
         tags: ["Facebook Ads", "Content Strategy"],
+        gallery: [
+          smg1, smg2, smg3, smg4, smg5, 
+          smg6, smg7, smg8, smg9, smg10, 
+          smg11, smg12, smg13, smg14, smg15, 
+          smg16, smg17, smg18, smg19, smg20, 
+          smg21, smg22, smg23, smg24, smg25
+        ],
         results: [
           "200% Increase in Brand Awareness",
           "50k+ Monthly Reach",
