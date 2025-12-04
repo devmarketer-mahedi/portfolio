@@ -2,6 +2,12 @@ import webDevImg from "@/assets/web_dev.png";
 import digitalMarketingImg from "@/assets/digital_marketing.png";
 import { StaticImageData } from "next/image";
 
+// Cover Images
+import ecommerceCover from "@/assets/ecommerce_cover.png";
+import portfolioCover from "@/assets/portfolio_cover.png";
+import socialMediaCover from "@/assets/social_media_cover.png";
+import seoCover from "@/assets/seo_cover.png";
+
 // Social Media Growth Images
 import smg1 from "@/assets/social-media-growth/Social Media Growth (1).jpg";
 import smg2 from "@/assets/social-media-growth/Social Media Growth (2).jpg";
@@ -59,10 +65,10 @@ export const projectData: Record<string, CategoryProjects> = {
         id: 1,
         title: "E-Commerce Platform",
         description: "A full-featured online store with cart, checkout, and payment integration.",
-        image: webDevImg,
+        image: ecommerceCover,
         link: "#",
         tags: ["Next.js", "Stripe", "Tailwind"],
-        gallery: [webDevImg, webDevImg], // Placeholder for now
+        gallery: [ecommerceCover], // Placeholder for now
         techStack: ["Next.js 14", "TypeScript", "Stripe Connect", "Tailwind CSS", "Supabase"],
         features: [
           "Real-time inventory management",
@@ -75,10 +81,10 @@ export const projectData: Record<string, CategoryProjects> = {
         id: 2,
         title: "Portfolio Website",
         description: "A modern, responsive portfolio website with dark mode and animations.",
-        image: webDevImg,
+        image: portfolioCover,
         link: "#",
         tags: ["React", "Framer Motion"],
-        gallery: [webDevImg],
+        gallery: [portfolioCover],
         techStack: ["React", "Framer Motion", "Vite", "Tailwind"],
         features: [
           "Smooth scroll animations",
@@ -97,7 +103,7 @@ export const projectData: Record<string, CategoryProjects> = {
         id: 1,
         title: "Social Media Growth",
         description: "Increased brand awareness by 200% through targeted Facebook ads.",
-        image: digitalMarketingImg,
+        image: socialMediaCover,
         link: "#",
         tags: ["Facebook Ads", "Content Strategy"],
         gallery: [
@@ -118,7 +124,7 @@ export const projectData: Record<string, CategoryProjects> = {
         id: 2,
         title: "SEO Optimization",
         description: "Ranked #1 on Google for key industry keywords.",
-        image: digitalMarketingImg,
+        image: seoCover,
         link: "#",
         tags: ["SEO", "Google Analytics"],
         results: [
