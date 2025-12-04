@@ -7,6 +7,7 @@ import Image from "next/image";
 import ContactModal from "./ContactModal";
 import ResumeModal from "./ResumeModal";
 import FloatingIcons from "./FloatingIcons";
+import profileImg from "@/assets/profile_v2.jpg";
 
 interface HeroProps {
   onShowProjects: () => void;
@@ -150,11 +151,12 @@ export default function Hero({ onShowProjects }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-tr from-neon-blue/10 to-neon-purple/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 
                 <Image 
-                  src="/profile_v2.jpg" 
+                  src={profileImg} 
                   alt="Mahedi - Web Developer" 
                   fill
                   className="object-cover object-top z-0"
                   priority
+                  placeholder="blur"
                 />
                 
                 {/* Decorative Elements */}
