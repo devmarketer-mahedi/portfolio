@@ -2,6 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, Mail, MapPin, Globe, Briefcase, GraduationCap, User, Download } from "lucide-react";
+import Image from "next/image";
+import profileImg from "@/assets/profile_v2.jpg";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -56,8 +58,14 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             {/* Sidebar (Left Column) */}
             <div className="w-full md:w-1/3 bg-[#11111f] p-8 border-r border-white/5">
               <div className="text-center mb-8">
-                <div className="w-32 h-32 mx-auto rounded-full border-4 border-neon-blue/30 overflow-hidden mb-4">
-                  <img src="/profile_v2.jpg" alt="Mahedi Hasan" className="w-full h-full object-cover" />
+                <div className="relative w-32 h-32 mx-auto rounded-full border-4 border-neon-blue/30 overflow-hidden mb-4">
+                  <Image 
+                    src={profileImg} 
+                    alt="Mahedi Hasan" 
+                    fill 
+                    className="object-cover"
+                    placeholder="blur"
+                  />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-1">MAHEDI HASAN</h2>
                 <p className="text-neon-blue text-sm font-medium">WEB DEVELOPER & DIGITAL MARKETING SPECIALIST</p>
