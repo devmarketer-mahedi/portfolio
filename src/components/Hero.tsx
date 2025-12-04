@@ -25,13 +25,13 @@ export default function Hero({ onShowProjects }: HeroProps) {
         <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-neon-purple/20 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center relative z-10">
         {/* Text Content */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-left"
+          className="text-center lg:text-left order-2 lg:order-1"
         >
           <h2 className="text-neon-blue text-lg font-bold tracking-widest uppercase mb-4">
             Web Developer & Digital Marketer
@@ -40,7 +40,7 @@ export default function Hero({ onShowProjects }: HeroProps) {
           Hi, I&apos;m <span className="animate-gradient-flow text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-purple-500 to-neon-purple">Mahedi</span>
           </h1>
           <motion.p 
-            className="text-gray-400 text-lg lg:text-xl max-w-lg mb-8 leading-relaxed font-mono"
+            className="text-gray-400 text-lg lg:text-xl max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed font-mono"
             initial={{ opacity: 1 }}
           >
             {"Full-stack web solutions and data-driven growth strategies.".split("").map((char, index) => (
@@ -61,7 +61,7 @@ export default function Hero({ onShowProjects }: HeroProps) {
             />
           </motion.p>
           
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             <button 
               onClick={onShowProjects}
               className="group px-8 py-3 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
@@ -85,7 +85,7 @@ export default function Hero({ onShowProjects }: HeroProps) {
             </button>
           </div>
 
-          <div className="mt-12 flex gap-6">
+          <div className="mt-12 flex justify-center lg:justify-start gap-6">
             {[
               { icon: Github, href: "https://github.com/devmarketer-mahedi" },
               { icon: Facebook, href: "https://web.facebook.com/DEVMARKETER.MAHEDI" },
@@ -136,17 +136,17 @@ export default function Hero({ onShowProjects }: HeroProps) {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="w-full h-[50vh] lg:h-screen relative flex items-center justify-center z-10"
+          className="w-full h-[40vh] lg:h-screen relative flex items-center justify-center z-10 order-1 lg:order-2 mb-8 lg:mb-0"
         >
           <FloatingIcons />
           
           {/* Professional Photo */}
-          <div className="relative w-[300px] h-[300px] lg:w-[450px] lg:h-[550px] flex items-center justify-center group">
+          <div className="relative w-[250px] h-[250px] lg:w-[450px] lg:h-[550px] flex items-center justify-center group">
               {/* Animated Glow Behind */}
               <div className="absolute inset-0 bg-gradient-to-tr from-neon-blue via-purple-500 to-neon-purple rounded-2xl blur-[20px] opacity-40 group-hover:opacity-70 transition-opacity duration-500 animate-pulse" />
               
               {/* Main Image Container */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center z-10">
+              <div className="relative w-full h-full rounded-full lg:rounded-2xl overflow-hidden border-2 border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center z-10">
                 {/* Inner Glow */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-neon-blue/10 to-neon-purple/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 
@@ -160,8 +160,8 @@ export default function Hero({ onShowProjects }: HeroProps) {
                 />
                 
                 {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-neon-blue rounded-tr-3xl z-20" />
-                <div className="absolute bottom-4 left-4 w-20 h-20 border-b-2 border-l-2 border-neon-purple rounded-bl-3xl z-20" />
+                <div className="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-neon-blue rounded-tr-3xl z-20 hidden lg:block" />
+                <div className="absolute bottom-4 left-4 w-20 h-20 border-b-2 border-l-2 border-neon-purple rounded-bl-3xl z-20 hidden lg:block" />
               </div>
           </div>
         </motion.div>
