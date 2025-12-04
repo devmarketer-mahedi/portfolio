@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Code2 } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
+import webDevImg from "@/assets/web_dev.png";
+import digitalMarketingImg from "@/assets/digital_marketing.png";
 
 const projects = [
   {
@@ -14,6 +17,7 @@ const projects = [
       github: "#",
     },
     color: "neon-blue",
+    image: webDevImg,
   },
   {
     id: 2,
@@ -25,6 +29,7 @@ const projects = [
       github: "#",
     },
     color: "neon-purple",
+    image: digitalMarketingImg,
   },
 ];
 
@@ -64,8 +69,13 @@ export default function Projects() {
               <div className="absolute inset-0 bg-linear-to-br from-neon-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Image Placeholder */}
-              <div className="relative h-48 bg-black/40 flex items-center justify-center border-b border-white/5 group-hover:border-white/10 transition-colors">
-                <Code2 size={48} className="text-gray-600 group-hover:text-neon-blue transition-colors duration-500" />
+              <div className="relative h-48 bg-black/40 flex items-center justify-center border-b border-white/5 group-hover:border-white/10 transition-colors overflow-hidden">
+                <Image 
+                  src={project.image} 
+                  alt={project.title} 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
                 
                 {/* Overlay Links */}
                 <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
