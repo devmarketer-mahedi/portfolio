@@ -87,7 +87,7 @@ export default function Hero({ onShowProjects }: HeroProps) {
           <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             <button 
               onClick={onShowProjects}
-              className="group px-8 py-3 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+              className="group px-8 py-3 animate-gradient-flow bg-gradient-to-r from-neon-blue via-purple-500 to-neon-purple text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
             >
               View Projects
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
