@@ -21,8 +21,31 @@ export default function Hero({ onShowProjects }: HeroProps) {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-20 lg:pt-0">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-neon-blue/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-neon-purple/20 rounded-full blur-[120px]" />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.3, 0.2] 
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute top-[-10%] right-[-5%] w-[70%] h-[50%] lg:w-[40%] lg:h-[40%] bg-neon-blue/20 rounded-full blur-[120px]" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.5, 1],
+            opacity: [0.2, 0.3, 0.2] 
+          }}
+          transition={{ 
+            duration: 10, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-[-10%] left-[-5%] w-[70%] h-[50%] lg:w-[40%] lg:h-[40%] bg-neon-purple/20 rounded-full blur-[120px]" 
+        />
       </div>
 
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center relative z-10">
