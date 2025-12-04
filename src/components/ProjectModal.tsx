@@ -1,10 +1,8 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github, CheckCircle2, Layers } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Project } from "@/data/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -12,6 +10,8 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [lightboxImage, setLightboxImage] = useState<string | StaticImageData | null>(null);
+
   // Prevent scrolling when modal is open
   useEffect(() => {
     if (project) {
@@ -126,15 +126,31 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <div className="space-y-8">
                   {/* Links */}
                   <div className="flex flex-col gap-3">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-neon-blue text-black font-semibold hover:bg-neon-blue/90 transition-colors"
-                    >
-                      <ExternalLink size={18} />
-                      Live Demo
-                    </a>
+                    {isWebDev ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-neon-blue text-black font-semibold hover:bg-neon-blue/90 transition-colors"
+                      >
+                        <ExternalLink size={18} />
+                        Live Demo
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          const gallery = document.getElementById("project-gallery");
+                          if (gallery) {
+                            gallery.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                        className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-neon-blue text-black font-semibold hover:bg-neon-blue/90 transition-colors"
+                      >
+                        <Layers size={18} />
+                        View Results
+                      </button>
+                    )}
+                    
                     {isWebDev && (
                       <a
                         href="#"
@@ -185,7 +201,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Gallery Section */}
               {project.gallery && project.gallery.length > 0 && (
-                <div className="p-6 md:p-8 border-t border-white/10">
+                <div id="project-gallery" className="p-6 md:p-8 border-t border-white/10">
                   <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
                     <Layers className="text-neon-blue" size={20} />
                     Project Gallery
@@ -194,7 +210,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     {project.gallery.map((img, idx) => (
                       <div 
                         key={idx} 
-                        className="relative h-48 rounded-lg overflow-hidden border border-white/5 hover:border-neon-blue/50 transition-all duration-300 group/image"
+                        onClick={() => setLightboxImage(img)}
+                        className="relative h-48 rounded-lg overflow-hidden border border-white/5 hover:border-neon-blue/50 transition-all duration-300 group/image cursor-zoom-in"
                       >
                         <Image
                           src={img}
@@ -209,6 +226,35 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               )}
             </motion.div>
           </motion.div>
+
+          {/* Lightbox Overlay */}
+          <AnimatePresence>
+            {lightboxImage && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setLightboxImage(null)}
+                className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+              >
+                <button
+                  onClick={() => setLightboxImage(null)}
+                  className="absolute top-4 right-4 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-10"
+                >
+                  <X size={24} />
+                </button>
+                
+                <div className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center">
+                  <Image
+                    src={lightboxImage}
+                    alt="Gallery Preview"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </>
       )}
     </AnimatePresence>
